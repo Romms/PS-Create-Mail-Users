@@ -1,102 +1,102 @@
 function Translit-ToLat
 {
-    #Правила транслітерації регламентуються Постановою Кабінету міністрів
-	# України від 27 січня 2010 р. N 55 (зі змінами).
+    #РџСЂР°РІРёР»Р° С‚СЂР°РЅСЃР»С–С‚РµСЂР°С†С–С— СЂРµРіР»Р°РјРµРЅС‚СѓСЋС‚СЊСЃСЏ РџРѕСЃС‚Р°РЅРѕРІРѕСЋ РљР°Р±С–РЅРµС‚Сѓ РјС–РЅС–СЃС‚СЂС–РІ
+    # РЈРєСЂР°С—РЅРё РІС–Рґ 27 СЃС–С‡РЅСЏ 2010 СЂ. N 55 (Р·С– Р·РјС–РЅР°РјРё).
     param(
         [string]$inputString
     )
     $translitUsual = @{
-        [char]'а' = "a"
-        [char]'А' = "A"
-        [char]'б' = "b"
-        [char]'Б' = "B"
-        [char]'в' = "v"
-        [char]'В' = "V"
-        [char]'г' = "h"
-        [char]'Г' = "H"
-        [char]'ґ' = "g"
-        [char]'Ґ' = "G"
-        [char]'д' = "d"
-        [char]'Д' = "D"
-        [char]'е' = "e"
-        [char]'Е' = "E"
-        [char]'є' = "ie"
-        [char]'Є' = "Ie"
-        [char]'ж' = "zh"
-        [char]'Ж' = "Zh"
-        [char]'з' = "z"
-        [char]'З' = "Z"
-        [char]'и' = "y"
-        [char]'И' = "Y"
-        [char]'і' = "i"
-        [char]'І' = "I"
-        [char]'ї' = "i"
-        [char]'Ї' = "I"
-        [char]'й' = "i"
-        [char]'Й' = "I"
-        [char]'к' = "k"
-        [char]'К' = "K"
-        [char]'л' = "l"
-        [char]'Л' = "L"
-        [char]'м' = "m"
-        [char]'М' = "M"
-        [char]'н' = "n"
-        [char]'Н' = "N"
-        [char]'о' = "o"
-        [char]'О' = "O"
-        [char]'п' = "p"
-        [char]'П' = "P"
-        [char]'р' = "r"
-        [char]'Р' = "R"
-        [char]'с' = "s"
-        [char]'С' = "S"
-        [char]'т' = "t"
-        [char]'Т' = "T"
-        [char]'у' = "u"
-        [char]'У' = "U"
-        [char]'ф' = "f"
-        [char]'Ф' = "F"
-        [char]'х' = "kh"
-        [char]'Х' = "Kh"
-        [char]'ц' = "ts"
-        [char]'Ц' = "Ts"
-        [char]'ч' = "ch"
-        [char]'Ч' = "Ch"
-        [char]'ш' = "sh"
-        [char]'Ш' = "Sh"
-        [char]'щ' = "shch"
-        [char]'Щ' = "Shch"
-        [char]'ю' = "iu"
-        [char]'Ю' = "Iu"
-        [char]'я' = "ia"
-        [char]'Я' = "Ia"
+        [char]'Р°' = "a"
+        [char]'Рђ' = "A"
+        [char]'Р±' = "b"
+        [char]'Р‘' = "B"
+        [char]'РІ' = "v"
+        [char]'Р’' = "V"
+        [char]'Рі' = "h"
+        [char]'Р“' = "H"
+        [char]'Т‘' = "g"
+        [char]'Тђ' = "G"
+        [char]'Рґ' = "d"
+        [char]'Р”' = "D"
+        [char]'Рµ' = "e"
+        [char]'Р•' = "E"
+        [char]'С”' = "ie"
+        [char]'Р„' = "Ie"
+        [char]'Р¶' = "zh"
+        [char]'Р–' = "Zh"
+        [char]'Р·' = "z"
+        [char]'Р—' = "Z"
+        [char]'Рё' = "y"
+        [char]'Р' = "Y"
+        [char]'С–' = "i"
+        [char]'Р†' = "I"
+        [char]'С—' = "i"
+        [char]'Р‡' = "I"
+        [char]'Р№' = "i"
+        [char]'Р™' = "I"
+        [char]'Рє' = "k"
+        [char]'Рљ' = "K"
+        [char]'Р»' = "l"
+        [char]'Р›' = "L"
+        [char]'Рј' = "m"
+        [char]'Рњ' = "M"
+        [char]'РЅ' = "n"
+        [char]'Рќ' = "N"
+        [char]'Рѕ' = "o"
+        [char]'Рћ' = "O"
+        [char]'Рї' = "p"
+        [char]'Рџ' = "P"
+        [char]'СЂ' = "r"
+        [char]'Р ' = "R"
+        [char]'СЃ' = "s"
+        [char]'РЎ' = "S"
+        [char]'С‚' = "t"
+        [char]'Рў' = "T"
+        [char]'Сѓ' = "u"
+        [char]'РЈ' = "U"
+        [char]'С„' = "f"
+        [char]'Р¤' = "F"
+        [char]'С…' = "kh"
+        [char]'РҐ' = "Kh"
+        [char]'С†' = "ts"
+        [char]'Р¦' = "Ts"
+        [char]'С‡' = "ch"
+        [char]'Р§' = "Ch"
+        [char]'С€' = "sh"
+        [char]'РЁ' = "Sh"
+        [char]'С‰' = "shch"
+        [char]'Р©' = "Shch"
+        [char]'СЋ' = "iu"
+        [char]'Р®' = "Iu"
+        [char]'СЏ' = "ia"
+        [char]'РЇ' = "Ia"
     }
 
     $translitAtTheBegin = @{
-        [char]'є' = "ye"
-        [char]'Є' = "Ye"
-        [char]'ї' = "yi"
-        [char]'Ї' = "Yi"
-        [char]'й' = "y"
-        [char]'Й' = "Y"
-        [char]'ю' = "yu"
-        [char]'Ю' = "Yu"
-        [char]'я' = "ya"
-        [char]'Я' = "Ya"
+        [char]'С”' = "ye"
+        [char]'Р„' = "Ye"
+        [char]'С—' = "yi"
+        [char]'Р‡' = "Yi"
+        [char]'Р№' = "y"
+        [char]'Р™' = "Y"
+        [char]'СЋ' = "yu"
+        [char]'Р®' = "Yu"
+        [char]'СЏ' = "ya"
+        [char]'РЇ' = "Ya"
 
     }
 
     $translitRussian = @{
-        [char]'ё' = "e" 
-        [char]'Ё' = "E"
-        [char]'ъ' = "" # "``"
-        [char]'Ъ' = "" # "``"
-        [char]'ы' = "y" # "y`"
-        [char]'Ы' = "Y" # "Y`"
-        [char]'ь' = "" # "`"
-        [char]'Ь' = "" # "`"
-        [char]'э' = "e" # "e`"
-        [char]'Э' = "e" # "E`"
+        [char]'С‘' = "e" 
+        [char]'РЃ' = "E"
+        [char]'СЉ' = "" # "``"
+        [char]'РЄ' = "" # "``"
+        [char]'С‹' = "y" # "y`"
+        [char]'Р«' = "Y" # "Y`"
+        [char]'СЊ' = "" # "`"
+        [char]'Р¬' = "" # "`"
+        [char]'СЌ' = "e" # "e`"
+        [char]'Р­' = "e" # "E`"
     }
 
     $outChars = ""
@@ -140,7 +140,7 @@ function Remove-NonAlphabeticCharacters {
     param(
         [string]$inputString
     )
-    $inputString -replace '[^a-zA-Z0-9]', ''
+    $inputString -replace '[^a-zA-Z0-9\.\-]', ''
 }
 
 function Normalize-Name {
@@ -181,7 +181,7 @@ function Import-PeopleFromCsv {
     param (
         [string]$Path
     )
-    Import-Csv -Path $Path -Delimiter ';'
+    Import-Csv -Path $Path -Delimiter ','
 }
 
 function Export-PeopleToCsv {
@@ -200,13 +200,13 @@ function Export-PeopleToCsv {
 
         if ($firstRun) {
             #Print headers
-            ('' | select 'FirstName', 'LastName', 'Year', 'Alias', 'Password' | ConvertTo-Csv -NoType -Delimiter ';')[0] `
+            ('' | select 'FirstName', 'LastName', 'Year', 'Alias', 'Password' | ConvertTo-Csv -NoType -Delimiter ',')[0] `
                 | Out-File $Path -Encoding 'UTF8'
         }
 
         $inputValue `
             | select 'FirstName', 'LastName', 'Year', 'Alias', 'Password' `
-            | Export-Csv -Append -Path $Path -Delimiter ';' -Encoding 'UTF8' -NoTypeInformation
+            | Export-Csv -Append -Path $Path -Delimiter ',' -Encoding 'UTF8' -NoTypeInformation
     }
 }
 
